@@ -52,5 +52,4 @@ Embedding and search run entirely on your machine. A `50_Private/` folder is exc
 
 MIT — see `LICENSE`. Use it, fork it, adapt it.
 
----
-Built with Claude Cowork.
+

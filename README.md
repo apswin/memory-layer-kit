@@ -17,6 +17,23 @@ Hand `SETUP-GUIDE.md` to a capable AI coding agent (e.g. Claude Code, or a local
 - `SETUP-GUIDE.md` — the full, phase-by-phase build guide (Obsidian → GitHub → Layers 1-3), with checkpoints, file templates, and the search program embedded.
 - `memory_search.py` — the Layer 3 search program (`index` and `search` commands).
 - `requirements.txt` — its two Python dependencies (`numpy`, `requests`).
+- `templates/` — drop-in files: `SKILL.md` + `run.sh` (the OpenClaw `memory-search` skill) and `vault.gitignore` (the `.gitignore` for your vault that keeps `50_Private/` off GitHub).
+
+## For OpenClaw users
+
+This kit was built to run inside [OpenClaw](https://openclaw.com), and the skill files are ready to drop in. After completing the setup guide through Phase 5 (the search program installed at `~/memory-search/`):
+
+1. Copy the skill into place:
+   ```
+   mkdir -p ~/.openclaw/skills/memory-search
+   cp templates/SKILL.md templates/run.sh ~/.openclaw/skills/memory-search/
+   chmod +x ~/.openclaw/skills/memory-search/run.sh
+   ```
+2. Set `MEMORY_VAULT_PATH` in `memory_search.py` (or as an env var) to your vault, and make sure `nomic-embed-text` is pulled (`ollama pull nomic-embed-text`).
+3. Schedule the re-index — easiest is to ask your agent: *"every 5 minutes run `~/memory-search/venv/bin/python ~/memory-search/memory_search.py index`."*
+4. The `SKILL.md` description is written with aggressive routing language so the orchestrator picks `memory-search` for "what have I saved about X" questions instead of a web search.
+
+Using a different agent (Claude Code, etc.)? Skip the skill files and just expose `memory_search.py search "<question>"` as a tool however that agent registers tools — the search program is identical.
 
 ## Requirements
 

@@ -1,0 +1,11 @@
+# Place this in your VAULT root, renamed to `.gitignore`.
+# It keeps private content and local junk out of GitHub.
+# IMPORTANT: 50_Private/ is what keeps your private notes off the cloud.
+
+50_Private/
+.obsidian/workspace*
+.trash/
+.DS_Store
+__pycache__/
+*.pyc
+index.db

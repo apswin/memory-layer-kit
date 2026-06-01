@@ -11,6 +11,12 @@ Hand this file to a capable AI coding agent (one that can run shell commands and
 
 Steps marked **[HUMAN]** need a person (installing desktop apps, creating accounts, granting OS permissions). Everything else an agent can do. Each phase ends with a **CHECKPOINT** — do not proceed until it passes.
 
+## About this repo
+
+A do-it-yourself kit for building a personal **AI memory layer** — a folder of Markdown notes (an Obsidian vault) that any AI agent can read from and write to, synced to GitHub, with **local semantic search** on top so an agent finds things by *meaning*, not just keywords. It runs entirely on your own machine: the embedding model (`nomic-embed-text` via Ollama) and the search index are local, and a private folder stays off GitHub entirely.
+
+It is built in three layers: a **navigation map** (so agents find the right note fast), an **agent protocol** (the rules every agent follows), and a **local RAG search** (retrieval that feeds your own notes to an AI so its answers are grounded in your memory, not guesses). Hand this guide to a capable AI coding agent — or follow it yourself — to build the whole thing from scratch.
+
 ## Assumptions and placeholders
 
 - Default OS: macOS (notes for Linux included). Windows: use WSL.
